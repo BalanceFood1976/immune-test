@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>내 눈, 지금 괜찮은 걸까?</title>
+  <style>
+    body { font-family: 'Noto Sans KR', sans-serif; padding: 20px; line-height: 1.6; }
+    h1 { font-size: 1.5rem; margin-bottom: 1rem; }
+    label { display: block; margin-bottom: 10px; }
+    input[type="checkbox"] { margin-right: 10px; }
+    button { padding: 10px 20px; font-size: 1rem; border: none; border-radius: 6px; background-color: #4CAF50; color: white; cursor: pointer; }
+    button:hover { background-color: #45a049; }
+  </style>
+</head>
+<body>
+  <h1>내 눈, 지금 괜찮은 걸까?<br>아래 문항을 체크해보세요!</h1>
+  <form id="quizForm">
+    <label><input type="checkbox" name="q" /> 눈이 자주 가렵고 무의식중에 비빈다</label>
+    <label><input type="checkbox" name="q" /> 실외 활동 후 눈이 더 간지럽다</label>
+    <label><input type="checkbox" name="q" /> 평소보다 눈물이 많아졌다</label>
+    <label><input type="checkbox" name="q" /> 눈에 이물감이 자주 든다</label>
+    <label><input type="checkbox" name="q" /> 눈이 자주 충혈된다</label>
+    <label><input type="checkbox" name="q" /> 눈곱이 많고 잘 떨어지지 않는다</label>
+    <label><input type="checkbox" name="q" /> 콘택트렌즈 착용 시 더 불편하다</label>
+    <label><input type="checkbox" name="q" /> 야외 활동 후 눈 상태가 더 안 좋아진다</label>
+    <label><input type="checkbox" name="q" /> 눈 주변이 붓거나 따가운 느낌이 든다</label>
+    <label><input type="checkbox" name="q" /> 최근 미세먼지 수치 높은 날 외출이 잦았다</label>
+    <br>
+    <button type="button" onclick="checkResult()">결과 보기</button>
+  </form>
+
+  <script>
+    function checkResult() {
+      const count = document.querySelectorAll('input[name="q"]:checked').length;
+      if (count <= 2) {
+        window.location.href = "result-low.html";
+      } else if (count <= 5) {
+        window.location.href = "result-mid.html";
+      } else if (count <= 7) {
+        window.location.href = "result-high.html";
+      } else {
+        window.location.href = "result-veryhigh.html";
+      }
+    }
+  </script>
+</body>
+</html>
